@@ -34,13 +34,13 @@ def players_input_check(input):
     - contain charactares other than digits
     '''
     if len(input) != 4 or not input.isdigit():
-        print(f"That's not a four digit number. Try again")
+        print(f"That's not a four digit number. Try again", separator, sep="\n")
         return False
     elif len(input) != len(set(input)):
-        print(f"You cannot input same digit twice. Try again")
+        print(f"You cannot input same digit twice. Try again", separator, sep="\n")
         return False
     elif input[0] == "0":
-        print(f"The number cannot start with zero. Try again")
+        print(f"The number cannot start with zero. Try again", separator, sep="\n")
         return False
     else:
         return True
@@ -79,13 +79,13 @@ def game():
     welcome
     #generate random number
     number = random_number()
-    
+        
     attempts = 0
 
     # guess the right number
     while True:
         guess = input(">>> ")
-        print(separator)
+        
         attempts += 1
 
         if players_input_check(guess):
@@ -102,6 +102,7 @@ def game():
                     print(f"{bulls} bulls and {cows} cow")
                 else:
                     print(f"{bulls} bulls and {cows} cows")
+            print(separator)
 
     print(separator)
     scorecard(attempts)
